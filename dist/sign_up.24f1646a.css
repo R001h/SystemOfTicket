@@ -1,0 +1,60 @@
+.box_signUp {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 15px #00000080;
+}
+
+.box_signUp label {
+  color: #00796b;
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+}
+
+.box_login input {
+  width: 90%;
+  border: 1px solid #00796b;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: block;
+}
+
+.containerButtons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.containerButtons button {
+  color: #fff;
+  cursor: pointer;
+  width: 45%;
+  background-color: #00796b;
+  border: none;
+  border-radius: 8px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.containerButtons button:hover {
+  background-color: #004d40;
+}
+
+@media (max-width: 600px) {
+  .box_login {
+    padding: 15px;
+  }
+
+  .containerButtons button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/*# sourceMappingURL=sign_up.24f1646a.css.map */

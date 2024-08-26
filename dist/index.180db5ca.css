@@ -1,0 +1,134 @@
+body {
+  height: 100vh;
+  background-color: #f5f5f5;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  display: flex;
+}
+
+.box_login {
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 20px #0000001a;
+}
+
+.box_login label {
+  color: #004d40;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  display: block;
+}
+
+.box_login input {
+  width: 100%;
+  box-sizing: border-box;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #004d40;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  font-size: 14px;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+  background-color: #fff;
+  border-color: #00796b;
+}
+
+.containerButtons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.containerButtons button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #00796b;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.containerButtons button:hover {
+  background-color: #004d40;
+}
+
+.modal {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #0006;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.modal-content {
+  width: 80%;
+  max-width: 450px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #004d40;
+  border-radius: 10px;
+  margin: 15% auto;
+  padding: 30px;
+  box-shadow: 0 0 20px #0000004d;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #004d40;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #00796b;
+}
+
+@media (max-width: 600px) {
+  .box_login {
+    padding: 30px;
+  }
+
+  .containerButtons button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/*# sourceMappingURL=index.180db5ca.css.map */

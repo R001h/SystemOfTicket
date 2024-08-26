@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Log In</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/indexStyle.css">
+</head>
+
+<body>
+    <div class="box_login">
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" placeholder="E-mail" id="email" required maxlength="45">
+        <br>
+        <label for="cedula">Cédula:</label>
+        <input type="number" placeholder="Cédula" id="cedula" required maxlength="45">
+        <br>
+        <label for="psw">Password:</label>
+        <input type="password" placeholder="Contraseña" id="psw" required maxlength="45">
+        <br>
+
+        <div class="containerButtons">
+            <button id="btnLogin" class="btnLogin">Iniciar Sesión</button>
+            <button id="btnSignUp" class="btnSignUp">Registrarse</button>
+        </div>
+    </div>
+
+    <!-- Modales -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSuccessModal">&times;</span>
+            <h5>Éxito</h5>
+            <p>Inicio de sesión exitoso.</p>
+            <button id="successConfirm" class="btnModal-Aceptar">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeErrorModal">&times;</span>
+            <h5>Error</h5>
+            <p>Por favor, rellena todos los campos.</p>
+            <button id="closeError" class="btnModal-Error">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/index.js"></script>
+</body>
+
+</html>

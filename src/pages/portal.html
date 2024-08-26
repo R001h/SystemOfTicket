@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de ticket </title>
+<body>
+    <h1 class="hTitle">Registro de Consulta </h1>
+    <h2 class="hTitle">Consultas</h2>
+
+<div class="box">
+        <input type="text" class="taskMain" id="taskMain" placeholder="Enter task or event">
+        <br><br>
+        <label class="typeSelect" for="typeSelect">Type:</label>
+        <select  id="typeSelect">
+            <option value="task">Task</option>
+            <br>
+            <option value="event">Event</option>
+        </select>
+        <br><br>
+        <label class="typeSelect"for="prioritySelect">Priority:</label>
+        <select id="prioritySelect">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+        <br><br>
+        <label class="typeSelect"for="eventDate" id="dateLabel">Event Date:</label>
+        <input type="date" id="eventDate">
+        <br><br>
+        <button target="_blank" class="btn" type="button" id="add1">Add</button>
+        <br><br>
+        <div id="containerTask"></div>
+    </div>
+
+ 
+<br><br><br><br>
+
+   <script type="module" src="../js/portal.js"></script>
+</body>
+</html>

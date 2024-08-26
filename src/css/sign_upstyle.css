@@ -1,0 +1,77 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: whitesmoke;
+    font-size: 20px;
+}
+
+/* estilos del formBox */
+.box_signUp { 
+    padding: 20px; /* Añadi px para que el padding funcione bien*/
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff; 
+} 
+
+
+/* estilos label */
+.box_signUp label {
+    color: #00796b; /* Color de las letras label */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilos del Input */
+.box_login input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #00796b;
+    border-radius: 10px;
+    display: block; /*inputs separados*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Contenedor de botones */
+.containerButtons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos Botones */
+.containerButtons button {
+    background-color: #00796b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 10px;
+    width: 45%; 
+}
+
+/* Hover en los botones */
+.containerButtons button:hover {
+    background-color: #004d40;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .box_login {
+        padding: 15px;
+    }
+
+    .containerButtons button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

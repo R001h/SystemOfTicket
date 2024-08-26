@@ -1,0 +1,14 @@
+
+.hTitle{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+}
+
+
+.boxConsult{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+}
+

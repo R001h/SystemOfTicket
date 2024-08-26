@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "email": "mario@me.com",
+      "username": "marioruis",
+      "cedula": "123456789",
+      "psw": "password123",
+      "id": "f8e2"
+    },
+    {
+      "email": "paco@me.com",
+      "username": "paco",
+      "cedula": "123456",
+      "psw": "pass",
+      "id": "7b44"
+    },
+    {
+      "id": "5b48",
+      "email": "aldo@me.com",
+      "username": "aldo",
+      "cedula": "12345675454891",
+      "psw": "dffdfgdfg"
+    },
+    {
+      "id": "41a6",
+      "email": "caldo@me.com",
+      "username": "caldo",
+      "cedula": "123424",
+      "psw": "fsdfdf"
+    }
+  ],
+  "registroConsultas": [],
+  "detallesConsultas": []
+}
