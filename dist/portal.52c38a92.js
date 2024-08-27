@@ -557,101 +557,161 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"6P3pm":[function(require,module,exports) {
-const taskMain = document.getElementById("taskMain");
-const addJ = document.getElementById("add1");
-const containerTask = document.getElementById("containerTask");
-const prioritySelect = document.getElementById("prioritySelect");
-const typeSelect = document.getElementById("typeSelect");
-const eventDate = document.getElementById("eventDate");
-const dateLabel = document.getElementById("dateLabel");
-typeSelect.addEventListener("change", function() {
-    if (typeSelect.value === "event") {
-        eventDate.style.display = "inline";
-        dateLabel.style.display = "inline";
-    } else {
-        eventDate.style.display = "none";
-        dateLabel.style.display = "none";
-    }
-});
-addJ.addEventListener("click", function() {
-    const taskS = taskMain.value;
-    const selectedType = typeSelect.value;
-    const selectedPriority = prioritySelect.value;
-    const eventDateValue = eventDate.value;
-    if (taskS.trim() === "") {
-        alert("Please introduce task or event.");
-        return;
-    }
-    const divHijo = document.createElement("div");
-    divHijo.classList.add("task-item");
-    const ptask = document.createElement("p");
-    ptask.classList.add("task-content");
-    if (selectedType === "task") ptask.innerHTML = "Task: " + taskS + " (Priority: " + selectedPriority + ")";
-    else ptask.innerHTML = "Event: " + taskS + " (Date: " + eventDateValue + ")";
-    const btnDelete = document.createElement("button");
-    btnDelete.innerHTML = "Delete";
-    btnDelete.addEventListener("click", function() {
-        containerTask.removeChild(divHijo);
-        saveTasks();
-    });
-    const btnEdit = document.createElement("button");
-    btnEdit.innerHTML = "Edit";
-    btnEdit.addEventListener("click", function() {
-        const newContent = prompt("Edit task/event:", taskS);
-        if (newContent !== null) {
-            ptask.innerHTML = (selectedType === "task" ? "Task: " : "Event: ") + newContent;
-            taskMain.value = newContent;
-            saveTasks();
-        }
-    });
-    divHijo.appendChild(ptask);
-    divHijo.appendChild(btnEdit);
-    divHijo.appendChild(btnDelete);
-    containerTask.appendChild(divHijo);
-    taskMain.value = "";
-    if (selectedType === "event") eventDate.value = "";
-    saveTasks();
-});
-function saveTasks() {
-    const tasks = [];
-    const taskElements = containerTask.getElementsByClassName("task-item");
-    for(let i = 0; i < taskElements.length; i++)tasks.push({
-        content: taskElements[i].querySelector(".task-content").textContent
-    });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-function loadTasks() {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-    for(let i = 0; i < savedTasks.length; i++){
-        const divHijo = document.createElement("div");
-        divHijo.classList.add("task-item");
-        const ptask = document.createElement("p");
-        ptask.classList.add("task-content");
-        ptask.innerHTML = savedTasks[i].content;
-        const btnDelete = document.createElement("button");
-        btnDelete.innerHTML = "Delete";
-        btnDelete.addEventListener("click", function() {
-            containerTask.removeChild(divHijo);
-            saveTasks();
-        });
-        const btnEdit = document.createElement("button");
-        btnEdit.innerHTML = "Edit";
-        btnEdit.addEventListener("click", function() {
-            const newContent = prompt("Edit task/event:", savedTasks[i].content);
-            if (newContent !== null) {
-                ptask.innerHTML = newContent;
-                saveTasks();
+var _getConsultas = require("../services/getConsultas");
+var _postConsultas = require("../services/postConsultas");
+// Elementos del DOM
+const usernameDisplay = document.getElementById("usernameDisplay");
+const incidentInput = document.getElementById("incident");
+const createTicketButton = document.getElementById("createTicket");
+const consultasContainer = document.getElementById("consultasContainer");
+// Función para obtener el usuario actual
+async function fetchCurrentUser() {
+    try {
+        const response = await fetch("http://localhost:3001/currentUser", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
             }
         });
-        divHijo.appendChild(ptask);
-        divHijo.appendChild(btnEdit);
-        divHijo.appendChild(btnDelete);
-        containerTask.appendChild(divHijo);
+        if (!response.ok) throw new Error("Error fetching current user");
+        const currentUser = await response.json();
+        return currentUser;
+    } catch (error) {
+        console.error("Error fetching current user:", error);
+        return null;
     }
 }
-// Load tasks on page load
-loadTasks();
+// Función para mostrar el nombre del usuario en la barra superior
+async function displayUsername() {
+    const currentUser = await fetchCurrentUser();
+    if (currentUser) {
+        usernameDisplay.textContent = `Usuario: ${currentUser.username}`;
+        return currentUser.username;
+    } else {
+        usernameDisplay.textContent = "Usuario no disponible";
+        return null;
+    }
+}
+// Función para cargar y mostrar todas las consultas
+async function loadConsultas() {
+    try {
+        const consultas = await (0, _getConsultas.getConsultas)();
+        consultasContainer.innerHTML = consultas.map((consulta)=>`
+            <div class="consulta-item">
+                <p><strong>Razón:</strong> ${consulta.incident}</p>
+                <p><strong>Nombre de Usuario:</strong> ${consulta.details}</p>
+                <p><strong>Hora:</strong> ${new Date(consulta.timestamp).toLocaleString()}</p>
+            </div>
+        `).join("");
+    } catch (error) {
+        console.error("Error loading consultas:", error);
+    }
+}
+// Función para crear una nueva consulta
+async function createConsulta() {
+    const incident = incidentInput.value.trim();
+    const username = await displayUsername(); // Obtener el nombre de usuario actual
+    if (!incident || !username) {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+    try {
+        // Crear una nueva consulta
+        const newConsulta = {
+            incident,
+            details: username,
+            timestamp: new Date().toISOString() // Hora actual en formato ISO
+        };
+        await (0, _postConsultas.postConsultas)(newConsulta);
+        alert("Consulta creada exitosamente.");
+        loadConsultas(); // Recargar las consultas después de crear una nueva
+    } catch (error) {
+        console.error("Error creating consulta:", error);
+        alert("Error al crear la consulta.");
+    }
+    // Limpiar el campo de entrada
+    incidentInput.value = "";
+}
+// Cargar el nombre de usuario y las consultas cuando se carga la página
+document.addEventListener("DOMContentLoaded", ()=>{
+    displayUsername();
+    loadConsultas();
+});
+// Asignar el manejador de eventos al botón de crear consulta
+createTicketButton.addEventListener("click", createConsulta);
 
-},{}]},["dABT1","6P3pm"], "6P3pm", "parcelRequire6682")
+},{"../services/getConsultas":"l9Qnu","../services/postConsultas":"jiBUy"}],"l9Qnu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getConsultas", ()=>getConsultas);
+async function getConsultas() {
+    try {
+        const response = await fetch("http://localhost:3001/registroConsultas", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (!response.ok) throw new Error("Error fetching consultas");
+        const consultas = await response.json();
+        return consultas;
+    } catch (error) {
+        console.error("Error fetching consultas:", error);
+        throw error;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"jiBUy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "postConsultas", ()=>postConsultas);
+async function postConsultas(consultaData) {
+    try {
+        const response = await fetch("http://localhost:3001/registroConsultas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(consultaData)
+        });
+        if (!response.ok) throw new Error("Error posting consulta");
+        return await response.json();
+    } catch (error) {
+        console.error("Error posting consulta:", error);
+        throw error;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["dABT1","6P3pm"], "6P3pm", "parcelRequire6682")
 
 //# sourceMappingURL=portal.52c38a92.js.map

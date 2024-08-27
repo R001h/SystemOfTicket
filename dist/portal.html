@@ -3,39 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event and Task Manager</title>
-</head><body>
-    <h1 class="hTitle">Registro de Consulta </h1>
-    <h2 class="hTitle">Event and Task Manager</h2>
+    <title>Portal</title>
+    <link rel="stylesheet" href="/portal.0abb52f8.css">
+</head>
+<body>
 
-<div class="box">
-        <input type="text" class="taskMain" id="taskMain" placeholder="Enter task or event">
-        <br><br>
-        <label class="typeSelect" for="typeSelect">Type:</label>
-        <select id="typeSelect">
-            <option value="task">Task</option>
+    <!-- Barra superior que muestra el nombre del usuario -->
+    <header class="header">
+        <span id="usernameDisplay">Usuario: Cargando...</span>
+    </header>
+
+    <!-- Contenedor principal para el contenido -->
+    <main class="container">
+
+        <!-- Formulario para crear una nueva consulta -->
+        <section class="create-ticket-form">
+            <label for="incident">Razón:</label>
+            <input type="text" id="incident" placeholder="Razón de la consulta" maxlength="30" required="">
             <br>
-            <option value="event">Event</option>
-        </select>
-        <br><br>
-        <label class="typeSelect" for="prioritySelect">Priority:</label>
-        <select id="prioritySelect">
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-        </select>
-        <br><br>
-        <label class="typeSelect" for="eventDate" id="dateLabel">Event Date:</label>
-        <input type="date" id="eventDate">
-        <br><br>
-        <button target="_blank" class="btn" type="button" id="add1">Add</button>
-        <br><br>
-        <div id="containerTask"></div>
-    </div>
+            <button id="createTicket">Crear Consulta</button>
+        </section>
 
- 
-<br><br><br><br>
+        <!-- Contenedor para mostrar las consultas pendientes -->
+        <section id="consultasContainer">
+        </section>
+        
+    </main>
 
-   <script src="/portal.52c38a92.js" defer=""></script>
+    <script src="/portal.52c38a92.js" defer=""></script>
+    
 </body>
 </html>

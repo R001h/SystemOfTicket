@@ -1,14 +1,22 @@
-const API_URL = 'http://localhost:3001/consultas';
 
 async function getConsultas() {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch('http://localhost:3001/registroConsultas', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Error fetching consultas');
         }
-        return await response.json();
+
+        const consultas = await response.json();
+        return consultas;
     } catch (error) {
-        console.error("Error fetching consultas:", error);
+        console.error('Error fetching consultas:', error);
+        throw error;
     }
 }
 

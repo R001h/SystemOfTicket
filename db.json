@@ -15,20 +15,33 @@
       "id": "7b44"
     },
     {
-      "id": "5b48",
       "email": "aldo@me.com",
       "username": "aldo",
       "cedula": "12345675454891",
-      "psw": "dffdfgdfg"
+      "psw": "dffdfgdfg",
+      "id": "5b48"
     },
     {
-      "id": "41a6",
       "email": "caldo@me.com",
       "username": "caldo",
       "cedula": "123424",
-      "psw": "fsdfdf"
+      "psw": "fsdfdf",
+      "id": "41a6"
     }
   ],
-  "registroConsultas": [],
-  "detallesConsultas": []
+  "registroConsultas": [
+    {
+      "id": "1",
+      "incident": "Consulta sobre el sistema",
+      "details": "marioruis",
+      "timestamp": "2024-08-27T14:00:00Z"
+    }
+  ],
+  "detallesConsultas": [
+    {
+      "id": "1",
+      "consulta_id": "1",
+      "detail": "Información adicional sobre la consulta"
+    }
+  ]
 }

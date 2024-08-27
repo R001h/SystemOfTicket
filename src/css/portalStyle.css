@@ -1,14 +1,35 @@
-
-.hTitle{
-    display: grid;
-    grid-template-columns: auto;
-    justify-content: center;
+/* Estilos básicos para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-.boxConsult{
-    display: grid;
-    grid-template-columns: auto;
-    justify-content: center;
+/* Estilos para el contenedor principal */
+.container {
+    padding: 20px; /* Espaciado interno del contenedor */
 }
 
+/* Estilos para cada ítem de consulta */
+.consulta-item {
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Margen inferior entre ítems */
+}
+
+/* Estilos para el formulario de creación de consultas */
+.create-ticket-form {
+    margin-bottom: 20px; /* Margen inferior para separar del contenido de las consultas */
+}
+
+/* Estilos para los campos de entrada y el botón en el formulario */
+.create-ticket-form input,
+.create-ticket-form button {
+    display: block; /* Mostrar como bloque */
+    margin: 10px 0; /* Margen vertical */
+    padding: 10px; /* Espaciado interno */
+    width: 100%; /* Ancho completo del contenedor */
+    box-sizing: border-box; /* Incluir el padding en el ancho total */
+}
