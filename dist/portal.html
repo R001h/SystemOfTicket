@@ -8,20 +8,18 @@
 </head>
 <body>
 
-    <!-- Barra superior que muestra el nombre del usuario -->
-    <header class="header">
-        <span id="usernameDisplay">Usuario: Cargando...</span>
-    </header>
-
     <!-- Contenedor principal para el contenido -->
     <main class="container">
 
         <!-- Formulario para crear una nueva consulta -->
         <section class="create-ticket-form">
-            <label for="incident">Razón:</label>
+            <label for="incident">Consulta:</label>
             <input type="text" id="incident" placeholder="Razón de la consulta" maxlength="30" required="">
             <br>
-            <button id="createTicket">Crear Consulta</button>
+            <label for="incident">Descripcion:</label>
+            <input type="text" id="incident" placeholder="Descripcion de la consulta" maxlength="30" required="">
+            <br>
+            <button id="createTicketBtn">Crear Consulta</button>
         </section>
 
         <!-- Contenedor para mostrar las consultas pendientes -->
