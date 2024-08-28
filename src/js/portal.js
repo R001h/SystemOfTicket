@@ -181,7 +181,7 @@ async function handleEdit(id, incident, incidentDetails, timestamp) {
 async function handleDelete(id) {
 
 
-    if (confirm('¿vas a anular la consulta?')) {
+    if (confirm('¿Se cambiara el estado la consulta?')) {
         await deleteConsultas(id);
 
         displayConsultas();

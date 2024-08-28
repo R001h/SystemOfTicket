@@ -679,7 +679,7 @@ async function handleEdit(id, incident, incidentDetails, timestamp) {
     }
 }
 async function handleDelete(id) {
-    if (confirm("\xbfvas a anular la consulta?")) {
+    if (confirm("\xbfSe cambiara el estado la consulta?")) {
         await (0, _deleteConsultas.deleteConsultas)(id);
         displayConsultas();
     }
