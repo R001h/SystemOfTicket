@@ -1,6 +1,6 @@
 async function gethistoryConsultas() {
     try {
-        const response = await fetch('http://localhost:3001/detallesConsultas', {
+        const response = await fetch('http://localhost:3001/historyConsultas', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

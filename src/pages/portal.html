@@ -16,20 +16,22 @@
             <label for="incident">Consulta:</label>
             <input type="text" id="incident" placeholder="Razón de la consulta" maxlength="30" required>
             <br>
-            <label for="incidentDetails">Descripcion:</label>
-            <input type="text" id="incidentDetails" placeholder="Descripcion de la consulta" maxlength="90" required>
+            <label for="incidentDetails">Descripción:</label>
+            <input type="text" id="incidentDetails" placeholder="Descripción de la consulta" maxlength="90" required>
             <br>
             <button id="createTicketBtn">Crear Consulta</button>
         </section>
 
+        <!-- Botón para redirigir a la página de historial de consultas -->
+        <section class="navigation">
+            <button onclick="window.location.href='../history.html'">Ver Historial de Consultas</button>
+        </section>
+
         <!-- Contenedor para mostrar las consultas pendientes -->
-         <section id="consultasContainer"> 
+        <section id="consultasContainer"> 
         </section>
         
     </main>     
-    <div>
-        
-    </div>
 
     <script type="module" src="../js/portal.js"></script>
     

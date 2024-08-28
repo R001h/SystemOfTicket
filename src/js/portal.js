@@ -2,7 +2,6 @@ import { getConsultas } from '../services/getConsultas';
 import { postConsultas } from '../services/postConsultas';
 import { putConsultas } from '../services/putConsultas'; 
 import { deleteConsultas } from '../services/deleteConsultas'; 
-
 import { postHistory } from '../services/postHistory';
 
 // Elementos del DOM

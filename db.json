@@ -36,7 +36,22 @@
       "psw": "pass"
     }
   ],
-  "registroConsultas": [],
+  "registroConsultas": [
+    {
+      "id": "63d1",
+      "incident": "software",
+      "incidentDetails": "papaya.film",
+      "timestamp": "2024-08-28T18:04:32.394Z",
+      "estado": "Pediente"
+    },
+    {
+      "id": "0f56",
+      "incident": "mango ",
+      "incidentDetails": "verde",
+      "timestamp": "2024-08-28T18:04:42.985Z",
+      "estado": "Pediente"
+    }
+  ],
   "historyConsultas": [
     {
       "id": "2c8e",

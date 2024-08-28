@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hostpria
-        
-    </title>
+    <title>Historial de Consultas</title>
+    <link rel="stylesheet" href="../css/history.css"> <!-- Enlace al CSS específico para esta página -->
 </head>
 <body>
-     
+
+    <main>
+        <div>
+            <h1>Historial de Consultas</h1>
+        </div> 
+
+        <!-- Campo de búsqueda para filtrar consultas -->
+        <section>
+            <input type="text" id="searchInput" placeholder="Buscar en el historial..." />
+        </section>
+
+        <!-- Contenedor para mostrar el historial de consultas -->
+        <section id="consultasContainer"> 
+        </section>
+    </main>
+
+    <!-- Importa el archivo JavaScript que contiene la lógica para manejar el historial -->
+    <script type="module" src="../js/history.js"></script>
 </body>
 </html>
