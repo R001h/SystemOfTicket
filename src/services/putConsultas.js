@@ -1,4 +1,3 @@
-// putConsultas.js
 async function putConsultas(id, updatedConsultaData) {
     try {
         const response = await fetch(`http://localhost:3001/registroConsultas/${id}`, {
@@ -10,7 +9,7 @@ async function putConsultas(id, updatedConsultaData) {
         });
 
         if (!response.ok) {
-            throw new Error(`Error updating consulta: ${response.statusText}`);
+            throw new Error('Error updating consulta');
         }
 
         return await response.json();

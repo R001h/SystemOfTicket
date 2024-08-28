@@ -3,6 +3,8 @@ import { postConsultas } from '../services/postConsultas';
 import { putConsultas } from '../services/putConsultas'; 
 import { deleteConsultas } from '../services/deleteConsultas'; 
 
+import { postHistory } from '../services/postHistory';
+
 // Elementos del DOM
 const incidentInput = document.getElementById("incident");
 const incidentDetailsInput = document.getElementById("incidentDetails");
@@ -29,40 +31,84 @@ async function displayConsultas() {
         const consultaTimestamp = document.createElement('small');
         consultaTimestamp.textContent = new Date(consulta.timestamp).toLocaleString();
 
+        //estado actual
+
+        const consultaStatus = document.createElement('p');
+        consultaStatus.textContent = `Estado: ${consulta.status}`;
+
         // Botón de edición
         const editBtn = document.createElement('button');
         editBtn.textContent = 'Editar';
-        editBtn.className = 'edit-btn';
+        editBtn.className = 'edit_btn';
         editBtn.onclick = () => showEditForm(consulta, consultaElement);
+
+        // Botón de cambio de estado
+        const changeStatusBtn = document.createElement('button');
+
+        let estado = document.createElement("p");
+
+        estado.innerText="Pendiente"
+     
+
+        changeStatusBtn.textContent="Aprobar"
+        changeStatusBtn.className = 'change-status-btn';
+        
 
         // Botón de eliminación
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Eliminar';
-        deleteBtn.className = 'delete-btn';
+        deleteBtn.textContent = 'Rechazar';
+        deleteBtn.className = 'delete_btn';
         deleteBtn.onclick = () => handleDelete(consulta.id);
         
         // Añadir los elementos al contenedor principal
         consultaElement.appendChild(consultaTitle);
         consultaElement.appendChild(consultaDetails);
         consultaElement.appendChild(consultaTimestamp);
+        consultaElement.appendChild(consultaTimestamp);
         consultaElement.appendChild(editBtn);
+        consultaElement.appendChild(changeStatusBtn);
         consultaElement.appendChild(deleteBtn);
+        consultaElement.appendChild(estado)
 
         consultasContainer.appendChild(consultaElement);
+
+        changeStatusBtn.addEventListener("click",function () {
+            
+     
+  
+            console.log(consulta);
+          
+                  const historyData = { 
+                    
+                      incident :consulta.incident,
+                      incidentDetails :consulta.incidentDetails,
+                      timestamp: consulta.timestamp,
+                      estado:"Aprobado"
+
+                      
+                  };
+
+                  postHistory(historyData)
+                  handleDelete(consulta.id)
+
+
+
+            
+        })
     });
 }
 
 // Función para mostrar el formulario de edición
 function showEditForm(consulta, consultaElement) {
     // Elimina cualquier formulario de edición previo
-    const existingEditForm = document.querySelector('.edit-form');
+    const existingEditForm = document.querySelector('.edit_form');
     if (existingEditForm) {
         existingEditForm.remove();
     }
 
     // Crear y mostrar el formulario de edición
     const editForm = document.createElement('div');
-    editForm.className = 'edit-form';
+    editForm.className = 'edit_form';
 
     const editIncidentInput = document.createElement('input');
     editIncidentInput.type = 'text';
@@ -92,11 +138,15 @@ function showEditForm(consulta, consultaElement) {
 }
 
 async function handleEdit(id, incident, incidentDetails, timestamp) {
+
+
+
     try {
         const updatedData = {
             incident,
             incidentDetails,
-            timestamp // Mantén el timestamp original
+            timestamp,// Mantén el timestamp original
+ 
         };
 
         const result = await putConsultas(id, updatedData);
@@ -112,8 +162,11 @@ async function handleEdit(id, incident, incidentDetails, timestamp) {
 
 
 async function handleDelete(id) {
-    if (confirm('¿vas a borrar la consulta?')) {
+
+
+    if (confirm('¿vas a anular la consulta?')) {
         await deleteConsultas(id);
+
         displayConsultas();
     }
 }
@@ -124,11 +177,13 @@ createTicketBtn.addEventListener("click", async function () {
     const incidentDetails = incidentDetailsInput.value;
 
     if (incident && incidentDetails) {
-        // Crear nueva consulta y enviarla al servidor
+        // Crear nueva consulta y envia a la base de datos
+        let estado = "Pediente";
         await postConsultas({
             incident: incident,
             incidentDetails: incidentDetails,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            estado
         });
 
         // Limpiar los campos de entrada después de enviar

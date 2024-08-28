@@ -17,8 +17,8 @@
     {
       "email": "aldo@me.com",
       "username": "aldo",
-      "cedula": "12345675454891",
-      "psw": "dffdfgdfg",
+      "cedula": "1212",
+      "psw": "aa",
       "id": "5b48"
     },
     {
@@ -38,110 +38,20 @@
   ],
   "registroConsultas": [
     {
-      "id": "f2b8",
-      "incident": "software",
-      "incidentDetails": "update pending",
-      "timestamp": "2024-08-27T19:52:15.563Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "946e",
+      "id": "0642",
       "incident": "software",
       "incidentDetails": "actualizacion de drivers de df",
-      "timestamp": "2024-08-27T19:53:50.595Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "e48c",
-      "incident": "software",
-      "incidentDetails": "actualizacion de drivers de dfdsdssd",
-      "timestamp": "2024-08-28T05:42:42.492Z",
-      "status": "En espera" 
-  },
-    {
-      "id": "0c6f",
-      "incident": "software",
-      "incidentDetails": "actualizacion de drivers de video",
-      "timestamp": "2024-08-27T19:54:44.789Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "1be3",
-      "incident": "software",
-      "incidentDetails": "actualizacion de offices",
-      "timestamp": "2024-08-27T20:00:35.871Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "c01f",
-      "incident": "software",
-      "incidentDetails": "actualizacion de offices",
-      "timestamp": "2024-08-28T05:32:59.069Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "ccde",
-      "incident": "software",
-      "incidentDetails": "actualizacion de offices",
-      "timestamp": "2024-08-28T05:33:03.961Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "b2fa",
-      "incident": "software",
-      "incidentDetails": "actualizacion de offices",
-      "timestamp": "2024-08-28T05:33:11.641Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "9aec",
-      "incident": "software",
-      "incidentDetails": "actualizacion de offices",
-      "timestamp": "2024-08-28T05:36:32.952Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "43a5",
-      "incident": "software",
-      "incidentDetails": "actualizacion de drivers de df",
-      "timestamp": "2024-08-28T05:39:35.121Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "c6e2",
-      "incident": "software",
-      "incidentDetails": "actualizacion de drivers de df",
-      "timestamp": "2024-08-28T05:42:34.635Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "e48c",
-      "incident": "software",
-      "incidentDetails": "actualizacion de drivers de dfdsdssd",
-      "timestamp": "2024-08-28T05:42:42.492Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "3ce1",
-      "incident": "hardware",
-      "incidentDetails": "papaya system",
-      "timestamp": "2024-08-28T06:15:27.861Z",
-      "status": "En espera" 
-    },
-    {
-      "id": "f099",
-      "incident": "array anidado",
-      "incidentDetails": "bucle fallo en linea 56:43 archivo papaya.js",
-      "timestamp": "2024-08-28T06:17:51.475Z",
-      "status": "En espera" 
+      "timestamp": "2024-08-28T14:38:35.549Z",
+      "estado": "Pediente"
     }
   ],
   "historyConsultas": [
     {
-      "id": "1",
-      "consulta_id": "1",
-      "detail": "Información adicional sobre la consulta",
-      "status": "En espera" 
+      "id": "2c8e",
+      "incident": "casita",
+      "incidentDetails": "perrito",
+      "timestamp": "2024-08-28T14:42:17.754Z",
+      "estado": "Aprobado"
     }
   ]
 }

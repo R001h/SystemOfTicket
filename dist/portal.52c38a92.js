@@ -561,6 +561,7 @@ var _getConsultas = require("../services/getConsultas");
 var _postConsultas = require("../services/postConsultas");
 var _putConsultas = require("../services/putConsultas");
 var _deleteConsultas = require("../services/deleteConsultas");
+var _postHistory = require("../services/postHistory");
 // Elementos del DOM
 const incidentInput = document.getElementById("incident");
 const incidentDetailsInput = document.getElementById("incidentDetails");
@@ -581,33 +582,56 @@ async function displayConsultas() {
         consultaDetails.textContent = consulta.incidentDetails;
         const consultaTimestamp = document.createElement("small");
         consultaTimestamp.textContent = new Date(consulta.timestamp).toLocaleString();
+        //estado actual
+        const consultaStatus = document.createElement("p");
+        consultaStatus.textContent = `Estado: ${consulta.status}`;
         // Botón de edición
         const editBtn = document.createElement("button");
         editBtn.textContent = "Editar";
-        editBtn.className = "edit-btn";
+        editBtn.className = "edit_btn";
         editBtn.onclick = ()=>showEditForm(consulta, consultaElement);
+        // Botón de cambio de estado
+        const changeStatusBtn = document.createElement("button");
+        let estado = document.createElement("p");
+        estado.innerText = "Pendiente";
+        changeStatusBtn.textContent = "Aprobar";
+        changeStatusBtn.className = "change-status-btn";
         // Botón de eliminación
         const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Eliminar";
-        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "Rechazar";
+        deleteBtn.className = "delete_btn";
         deleteBtn.onclick = ()=>handleDelete(consulta.id);
         // Añadir los elementos al contenedor principal
         consultaElement.appendChild(consultaTitle);
         consultaElement.appendChild(consultaDetails);
         consultaElement.appendChild(consultaTimestamp);
+        consultaElement.appendChild(consultaTimestamp);
         consultaElement.appendChild(editBtn);
+        consultaElement.appendChild(changeStatusBtn);
         consultaElement.appendChild(deleteBtn);
+        consultaElement.appendChild(estado);
         consultasContainer.appendChild(consultaElement);
+        changeStatusBtn.addEventListener("click", function() {
+            console.log(consulta);
+            const historyData = {
+                incident: consulta.incident,
+                incidentDetails: consulta.incidentDetails,
+                timestamp: consulta.timestamp,
+                estado: "Aprobado"
+            };
+            (0, _postHistory.postHistory)(historyData);
+            handleDelete(consulta.id);
+        });
     });
 }
 // Función para mostrar el formulario de edición
 function showEditForm(consulta, consultaElement) {
     // Elimina cualquier formulario de edición previo
-    const existingEditForm = document.querySelector(".edit-form");
+    const existingEditForm = document.querySelector(".edit_form");
     if (existingEditForm) existingEditForm.remove();
     // Crear y mostrar el formulario de edición
     const editForm = document.createElement("div");
-    editForm.className = "edit-form";
+    editForm.className = "edit_form";
     const editIncidentInput = document.createElement("input");
     editIncidentInput.type = "text";
     editIncidentInput.value = consulta.incident;
@@ -645,7 +669,7 @@ async function handleEdit(id, incident, incidentDetails, timestamp) {
     }
 }
 async function handleDelete(id) {
-    if (confirm("\xbfvas a borrar la consulta?")) {
+    if (confirm("\xbfvas a anular la consulta?")) {
         await (0, _deleteConsultas.deleteConsultas)(id);
         displayConsultas();
     }
@@ -655,11 +679,13 @@ createTicketBtn.addEventListener("click", async function() {
     const incident = incidentInput.value;
     const incidentDetails = incidentDetailsInput.value;
     if (incident && incidentDetails) {
-        // Crear nueva consulta y enviarla al servidor
+        // Crear nueva consulta y envia a la base de datos
+        let estado = "Pediente";
         await (0, _postConsultas.postConsultas)({
             incident: incident,
             incidentDetails: incidentDetails,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            estado
         });
         // Limpiar los campos de entrada después de enviar
         incidentInput.value = "";
@@ -671,7 +697,7 @@ createTicketBtn.addEventListener("click", async function() {
 // Mostrar las consultas al cargar la página
 displayConsultas();
 
-},{"../services/getConsultas":"l9Qnu","../services/postConsultas":"jiBUy","../services/putConsultas":"htcwb","../services/deleteConsultas":"4uazZ"}],"l9Qnu":[function(require,module,exports) {
+},{"../services/getConsultas":"l9Qnu","../services/postConsultas":"jiBUy","../services/putConsultas":"htcwb","../services/deleteConsultas":"4uazZ","../services/postHistory":"dacBP"}],"l9Qnu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getConsultas", ()=>getConsultas);
@@ -744,7 +770,6 @@ async function postConsultas(consultaData) {
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"htcwb":[function(require,module,exports) {
-// putConsultas.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "putConsultas", ()=>putConsultas);
@@ -757,7 +782,7 @@ async function putConsultas(id, updatedConsultaData) {
             },
             body: JSON.stringify(updatedConsultaData)
         });
-        if (!response.ok) throw new Error(`Error updating consulta: ${response.statusText}`);
+        if (!response.ok) throw new Error("Error updating consulta");
         return await response.json();
     } catch (error) {
         console.error("Error updating consulta:", error);
@@ -781,6 +806,26 @@ async function deleteConsultas(id) {
         return await response.json();
     } catch (error) {
         console.error("Error deleting consulta:", error);
+        throw error;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dacBP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "postHistory", ()=>postHistory);
+async function postHistory(historyData) {
+    try {
+        const response = await fetch("http://localhost:3001/historyConsultas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(historyData)
+        });
+        return await response.json();
+    } catch (error) {
+        console.error("Error posting user:", error);
         throw error;
     }
 }
