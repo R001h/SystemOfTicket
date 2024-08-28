@@ -4,6 +4,11 @@ import { gethistoryConsultas } from '../services/getDetallesConsultas';
 const consultasContainer = document.getElementById('consultasContainer');
 const searchInput = document.getElementById('searchInput'); // Para búsqueda
 
+<!-- Botón para redirigir a la página consultas -->
+        <section class="navigation">
+            <button onclick="window.location.href='../portal.html'">Volver Consultas...</button>
+        </section>
+
 // Función para mapear consultas a elementos DOM
 function mapConsultas(consultas) {
     return consultas.map(consulta => ({

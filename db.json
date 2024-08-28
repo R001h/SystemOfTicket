@@ -50,6 +50,13 @@
       "incidentDetails": "verde",
       "timestamp": "2024-08-28T18:04:42.985Z",
       "estado": "Pediente"
+    },
+    {
+      "id": "43f7",
+      "incident": "mango rosa",
+      "incidentDetails": "the high",
+      "timestamp": "2024-08-28T18:18:01.341Z",
+      "estado": "Pediente"
     }
   ],
   "historyConsultas": [
