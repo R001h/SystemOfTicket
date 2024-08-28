@@ -36,7 +36,7 @@
 96C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\terser\tools133686449432665723 1
 150C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\transformer-html\node_modules\posthtml-parser\changelog.md133686449425667960 0
 106C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\source-map\lib\util.js133686449428021220 0
-78C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\db.json133693303301963316 0
+78C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\db.json133693349817708536 0
 118C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\electron-to-chromium\versions.json133686449427674455 0
 101C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\lmdb\util\when.js133686449434810579 0
 128C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\caniuse-lite\data\features\css-snappoints.js133686449436488955 0
@@ -44,7 +44,7 @@
 80C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\src\audio133686403691808008 1
 115C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\caniuse-lite\data\regions\IT.js133686449440882307 0
 127C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\workers\lib\threads\ThreadsChild.js133686449430166324 0
-75C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist133693314420387130 1
+75C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist133693352939686560 1
 104C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\terser\lib\output.js133686449431596001 0
 101C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\react-refresh\cjs133686449425712788 1
 101C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\timsort\README.md133686449423337116 0
@@ -172,7 +172,7 @@
 139C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\caniuse-lite\data\features\css-container-query-units.js133686449435159207 0
 127C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\workers\src\process\ProcessChild.js133686449429498486 0
 105C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\htmlnano\package.json133686449431555992 0
-99C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.0abb52f8.css.map133693313911009132 0
+99C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.0abb52f8.css.map133693351002206162 0
 92C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\src\pages\portal.html133692962650221248 0
 93C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\src\pages\sign_up.html133692501783171735 0
 126C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\caniuse-lite\data\features\inline-block.js133686449440387369 0
@@ -186,7 +186,7 @@
 105C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\lmdb\rollup.config.js133686449434777828 0
 106C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\css-tree\lib\generator133686449433992483 1
 128C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\caniuse-lite\data\features\css-exclusions.js133686449435439433 0
-87C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\src\js\portal.js133693314420082528 0
+87C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\src\js\portal.js133693352939436032 0
 113C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\react-error-overlay\README.md133686449426604727 0
 124C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\yaml\browser\dist\resolveSeq-492ab440.js133686449429909720 0
 128C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\transformer-html\src\dependencies.js133686449423883176 0
@@ -844,7 +844,7 @@
 109C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\posthtml-render\readme.md133686449425243630 0
 130C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\caniuse-lite\data\features\css-focus-within.js133686449435580849 0
 107C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\package-manager133686449431838748 1
-87C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.html133693301260462802 0
+87C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.html133693351002754020 0
 118C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\xxhash-wasm\cjs\xxhash-wasm.js.map133686449425392508 0
 101C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@types\parse-json133686449423883176 1
 139C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\node-resolver-core\test\fixture\nested\index.js133686449429987497 0
@@ -1242,7 +1242,7 @@
 134C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\intro.doc133686449433821794 0
 121C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@parcel\utils\test\objectHash.test.js133686449431838748 0
 102C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\boolbase\README.md133686449422820949 0
-98C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.52c38a92.js.map133693314420367029 0
+98C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.52c38a92.js.map133693352939686560 0
 102C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\msgpackr\pack.d.ts133686449431838748 0
 130C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\@swc\helpers\src\_async_generator_delegate.mjs133686449433759545 0
 112C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\node_modules\node-releases\data\processed133686449422856596 1
@@ -4328,8 +4328,8 @@
 97C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\pages.0155c232.js.map133689005443192838 0
 101C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\Plantilla.59712999.js.map133686449576128340 0
 94C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.02b0b677.js133692325573618411 0
-95C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.0abb52f8.css133693313910966643 0
-94C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.52c38a92.js133693314420328967 0
+95C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.0abb52f8.css133693351002125376 0
+94C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\portal.52c38a92.js133693352939674267 0
 100C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\sign_up.24f1646a.css.map133693194886785526 0
 99C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\sign_up.946eaa7e.js.map133688367090821622 0
 95C:\Users\fwdcostarica\Desktop\Proyecto_Tikcets\ticketsSystem\Plantilla\dist\sign_up.e97e16f0.js133693194886855545 0

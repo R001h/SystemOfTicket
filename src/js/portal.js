@@ -59,6 +59,23 @@ async function displayConsultas() {
         deleteBtn.textContent = 'Rechazar';
         deleteBtn.className = 'delete_btn';
         deleteBtn.onclick = () => handleDelete(consulta.id);
+
+        deleteBtn.addEventListener("click",function () {
+            
+          
+                  const historyData = { 
+                    
+                      incident :consulta.incident,
+                      incidentDetails :consulta.incidentDetails,
+                      timestamp: consulta.timestamp,
+                      estado:"rechazado"
+                      
+                  };
+
+                  postHistory(historyData)
+                  handleDelete(consulta.id)
+        })
+
         
         // Añadir los elementos al contenedor principal
         consultaElement.appendChild(consultaTitle);

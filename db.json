@@ -38,10 +38,10 @@
   ],
   "registroConsultas": [
     {
-      "id": "0642",
-      "incident": "software",
-      "incidentDetails": "actualizacion de drivers de df",
-      "timestamp": "2024-08-28T14:38:35.549Z",
+      "id": "83c3",
+      "incident": "mango ",
+      "incidentDetails": "verde",
+      "timestamp": "2024-08-28T16:15:28.650Z",
       "estado": "Pediente"
     }
   ],
@@ -51,6 +51,34 @@
       "incident": "casita",
       "incidentDetails": "perrito",
       "timestamp": "2024-08-28T14:42:17.754Z",
+      "estado": "Aprobado"
+    },
+    {
+      "id": "e746",
+      "incident": "software",
+      "incidentDetails": "papaya",
+      "timestamp": "2024-08-28T16:06:04.668Z",
+      "estado": "Aprobado"
+    },
+    {
+      "id": "5d96",
+      "incident": "papayita",
+      "incidentDetails": "madura",
+      "timestamp": "2024-08-28T16:06:48.366Z",
+      "estado": "Aprobado"
+    },
+    {
+      "id": "d89b",
+      "incident": "software",
+      "incidentDetails": "actualizacion",
+      "timestamp": "2024-08-28T16:09:41.761Z",
+      "estado": "rechazado"
+    },
+    {
+      "id": "20c2",
+      "incident": "limon ",
+      "incidentDetails": "amarillo",
+      "timestamp": "2024-08-28T16:15:36.835Z",
       "estado": "Aprobado"
     }
   ]
