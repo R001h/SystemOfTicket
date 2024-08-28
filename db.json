@@ -36,15 +36,7 @@
       "psw": "pass"
     }
   ],
-  "registroConsultas": [
-    {
-      "id": "83c3",
-      "incident": "mango ",
-      "incidentDetails": "verde",
-      "timestamp": "2024-08-28T16:15:28.650Z",
-      "estado": "Pediente"
-    }
-  ],
+  "registroConsultas": [],
   "historyConsultas": [
     {
       "id": "2c8e",
@@ -80,6 +72,27 @@
       "incidentDetails": "amarillo",
       "timestamp": "2024-08-28T16:15:36.835Z",
       "estado": "Aprobado"
+    },
+    {
+      "id": "cf0b",
+      "incident": "papaya",
+      "incidentDetails": "verde",
+      "timestamp": "2024-08-28T16:30:48.458Z",
+      "estado": "Aprobado"
+    },
+    {
+      "id": "8d95",
+      "incident": "mango ",
+      "incidentDetails": "verde",
+      "timestamp": "2024-08-28T16:15:28.650Z",
+      "estado": "rechazado"
+    },
+    {
+      "id": "b262",
+      "incident": "perro",
+      "incidentDetails": "bravo",
+      "timestamp": "2024-08-28T16:32:51.364Z",
+      "estado": "rechazado"
     }
   ]
 }
