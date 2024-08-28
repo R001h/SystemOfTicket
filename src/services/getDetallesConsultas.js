@@ -1,4 +1,4 @@
-async function getDetallesConsultas() {
+async function gethistoryConsultas() {
     try {
         const response = await fetch('http://localhost:3001/detallesConsultas', {
             method: 'GET',
@@ -19,4 +19,4 @@ async function getDetallesConsultas() {
     }
 }
 
-export { getDetallesConsultas };
+export { gethistoryConsultas };

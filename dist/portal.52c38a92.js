@@ -557,20 +557,121 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"6P3pm":[function(require,module,exports) {
-var _getUsers = require("../services/getUsers");
 var _getConsultas = require("../services/getConsultas");
 var _postConsultas = require("../services/postConsultas");
+var _putConsultas = require("../services/putConsultas");
+var _deleteConsultas = require("../services/deleteConsultas");
 // Elementos del DOM
 const incidentInput = document.getElementById("incident");
-const createTicketButton = document.getElementById("createTicketbtn");
+const incidentDetailsInput = document.getElementById("incidentDetails");
+const createTicketBtn = document.getElementById("createTicketBtn");
 const consultasContainer = document.getElementById("consultasContainer");
-// Cargar el nombre de usuario y las consultas cuando se carga la página
-document.addEventListener("DOMContentLoaded", ()=>{
-    displayUsername();
-    loadConsultas();
+// Función para mostrar las consultas en el contenedor
+async function displayConsultas() {
+    const consultas = await (0, _getConsultas.getConsultas)();
+    consultasContainer.innerHTML = ""; // inicia el contenedor 0
+    consultas.forEach((consulta)=>{
+        // Crear elementos
+        const consultaElement = document.createElement("div");
+        consultaElement.className = "consulta";
+        consultaElement.dataset.id = consulta.id;
+        const consultaTitle = document.createElement("h3");
+        consultaTitle.textContent = consulta.incident;
+        const consultaDetails = document.createElement("p");
+        consultaDetails.textContent = consulta.incidentDetails;
+        const consultaTimestamp = document.createElement("small");
+        consultaTimestamp.textContent = new Date(consulta.timestamp).toLocaleString();
+        // Botón de edición
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Editar";
+        editBtn.className = "edit-btn";
+        editBtn.onclick = ()=>showEditForm(consulta, consultaElement);
+        // Botón de eliminación
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Eliminar";
+        deleteBtn.className = "delete-btn";
+        deleteBtn.onclick = ()=>handleDelete(consulta.id);
+        // Añadir los elementos al contenedor principal
+        consultaElement.appendChild(consultaTitle);
+        consultaElement.appendChild(consultaDetails);
+        consultaElement.appendChild(consultaTimestamp);
+        consultaElement.appendChild(editBtn);
+        consultaElement.appendChild(deleteBtn);
+        consultasContainer.appendChild(consultaElement);
+    });
+}
+// Función para mostrar el formulario de edición
+function showEditForm(consulta, consultaElement) {
+    // Elimina cualquier formulario de edición previo
+    const existingEditForm = document.querySelector(".edit-form");
+    if (existingEditForm) existingEditForm.remove();
+    // Crear y mostrar el formulario de edición
+    const editForm = document.createElement("div");
+    editForm.className = "edit-form";
+    const editIncidentInput = document.createElement("input");
+    editIncidentInput.type = "text";
+    editIncidentInput.value = consulta.incident;
+    editIncidentInput.placeholder = "Raz\xf3n de la consulta";
+    const editDetailsInput = document.createElement("input");
+    editDetailsInput.type = "text";
+    editDetailsInput.value = consulta.incidentDetails;
+    editDetailsInput.placeholder = "Descripci\xf3n de la consulta";
+    const saveBtn = document.createElement("button");
+    saveBtn.textContent = "Guardar Cambios";
+    saveBtn.onclick = ()=>handleEdit(consulta.id, editIncidentInput.value, editDetailsInput.value, consulta.timestamp);
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "Cancelar";
+    cancelBtn.onclick = ()=>editForm.remove();
+    editForm.appendChild(editIncidentInput);
+    editForm.appendChild(editDetailsInput);
+    editForm.appendChild(saveBtn);
+    editForm.appendChild(cancelBtn);
+    // Inserta el formulario de edición en el contenedor del elemento de consulta
+    consultaElement.appendChild(editForm);
+}
+async function handleEdit(id, incident, incidentDetails, timestamp) {
+    try {
+        const updatedData = {
+            incident,
+            incidentDetails,
+            timestamp
+        };
+        const result = await (0, _putConsultas.putConsultas)(id, updatedData);
+        console.log("Consulta actualizada:", result); // Para depuración
+        displayConsultas(); // Actualiza la lista de consultas después de la edición
+    } catch (error) {
+        console.error("Error al editar la consulta:", error);
+        alert("No se pudo actualizar la consulta. Int\xe9ntalo de nuevo.");
+    }
+}
+async function handleDelete(id) {
+    if (confirm("\xbfvas a borrar la consulta?")) {
+        await (0, _deleteConsultas.deleteConsultas)(id);
+        displayConsultas();
+    }
+}
+// Evento para crear una nueva consulta
+createTicketBtn.addEventListener("click", async function() {
+    const incident = incidentInput.value;
+    const incidentDetails = incidentDetailsInput.value;
+    if (incident && incidentDetails) {
+        // Crear nueva consulta y enviarla al servidor
+        await (0, _postConsultas.postConsultas)({
+            incident: incident,
+            incidentDetails: incidentDetails,
+            timestamp: new Date().toISOString()
+        });
+        // Limpiar los campos de entrada después de enviar
+        incidentInput.value = "";
+        incidentDetailsInput.value = "";
+        // Mostrar las consultas actualizadas
+        displayConsultas();
+    }
 });
+// Mostrar las consultas al cargar la página
+displayConsultas();
 
-},{"../services/getConsultas":"l9Qnu","../services/postConsultas":"jiBUy","../services/getUsers":"b4hYb"}],"l9Qnu":[function(require,module,exports) {
+},{"../services/getConsultas":"l9Qnu","../services/postConsultas":"jiBUy","../services/putConsultas":"htcwb","../services/deleteConsultas":"4uazZ"}],"l9Qnu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getConsultas", ()=>getConsultas);
@@ -642,23 +743,44 @@ async function postConsultas(consultaData) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b4hYb":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"htcwb":[function(require,module,exports) {
+// putConsultas.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getUsers", ()=>getUsers);
-async function getUsers() {
+parcelHelpers.export(exports, "putConsultas", ()=>putConsultas);
+async function putConsultas(id, updatedConsultaData) {
     try {
-        const response = await fetch("http://localhost:3001/users", {
-            method: "GET",
+        const response = await fetch(`http://localhost:3001/registroConsultas/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedConsultaData)
+        });
+        if (!response.ok) throw new Error(`Error updating consulta: ${response.statusText}`);
+        return await response.json();
+    } catch (error) {
+        console.error("Error updating consulta:", error);
+        throw error;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4uazZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "deleteConsultas", ()=>deleteConsultas);
+async function deleteConsultas(id) {
+    try {
+        const response = await fetch(`http://localhost:3001/registroConsultas/${id}`, {
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
             }
         });
-        if (!response.ok) throw new Error("Error fetching users");
-        const users = await response.json();
-        return users;
+        if (!response.ok) throw new Error("Error deleting consulta");
+        return await response.json();
     } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error("Error deleting consulta:", error);
         throw error;
     }
 }

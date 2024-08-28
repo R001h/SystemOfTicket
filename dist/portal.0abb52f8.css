@@ -16,11 +16,11 @@ body {
   padding: 10px;
 }
 
-.create-ticket-form {
+.createTicketForm {
   margin-bottom: 20px;
 }
 
-.create-ticket-form input, .create-ticket-form button {
+.createTicketForm input, .createTicketForm button {
   width: 100%;
   box-sizing: border-box;
   margin: 10px 0;

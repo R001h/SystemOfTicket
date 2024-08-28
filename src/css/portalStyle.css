@@ -20,13 +20,13 @@ body {
 }
 
 /* Estilos para el formulario de creación de consultas */
-.create-ticket-form {
+.createTicketForm {
     margin-bottom: 20px; /* Margen inferior para separar del contenido de las consultas */
 }
 
 /* Estilos para los campos de entrada y el botón en el formulario */
-.create-ticket-form input,
-.create-ticket-form button {
+.createTicketForm input,
+.createTicketForm button {
     display: block; /* Mostrar como bloque */
     margin: 10px 0; /* Margen vertical */
     padding: 10px; /* Espaciado interno */
